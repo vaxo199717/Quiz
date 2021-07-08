@@ -5,11 +5,11 @@ import { finalize } from 'rxjs/operators'
 
 
 @Component({
-  selector: 'app-quiz-page',
-  templateUrl: './quiz-page.component.html',
-  styleUrls: ['./quiz-page.component.scss']
+  selector: 'app-quiz',
+  templateUrl: './quiz.component.html',
+  styleUrls: ['./quiz.component.scss']
 })
-export class QuizPageComponent implements OnInit {
+export class QuizComponent implements OnInit {
   answers: any = {
     correctAnswers: 0,
     incorrectAnswers: 0
