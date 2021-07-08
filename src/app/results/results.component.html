@@ -1,0 +1,19 @@
+<div class="body">
+    <div class="result-container">
+        <div class="message">
+            <p>You Have Finished Your Quiz</p>
+        </div>
+        <div class="results">
+            <span class="correct-answers">
+                Correct Answers - {{ results?.correctAnswers }}
+            </span>
+            <br>
+            <span class="incorrect-answers">
+                Incorrect Answers - {{ results?.incorrectAnswers }}
+            </span>
+        </div>
+        <div class="start-over">
+            <button (click)="showResults()" [routerLink]="['/main']" routerLinkActive="router-link-active"  class="try-again">Try Again</button>
+        </div>
+    </div>
+</div>

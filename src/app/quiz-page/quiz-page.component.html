@@ -1,0 +1,41 @@
+<div class="quiz-container">
+    <div class="questions-container">
+        <ng-container *ngIf="!isLoading; else loading">
+            <ol class="question">
+                <li *ngFor="let questionData of questions" class="question-content">
+                    <p class="question-text">{{questionData.question}}</p>
+                    <ol class="answers">
+                        <li (click)="chooseAnswer(questionData, incorrect_answers)" class="answer-but"
+                            *ngFor="let incorrect_answers of questionData.incorrect_answers" [ngClass]="{'correct-color':  questionData.isAnswered && 
+                                                          questionData.correct_answer == questionData.selectedAnswer && 
+                                                          questionData.selectedAnswer == incorrect_answers,
+                                        'incorrect-color':    questionData.isAnswered && 
+                                                          questionData.correct_answer != questionData.selectedAnswer &&
+                                                          questionData.selectedAnswer == incorrect_answers,
+                                         'disabled': questionData.isAnswered}">
+                            {{incorrect_answers}}</li>
+                    </ol>
+    
+                    <hr>
+                </li>
+            </ol>
+            <br>
+            <div class="finish">
+                <button (click)="finish()" class="btn btn-primary" 
+                        [routerLink]="['/results']" [queryParams]="answers">finish</button>
+            </div>
+        </ng-container>
+
+        <ng-template #loading>
+            loading... 
+        </ng-template>
+    </div>
+    <div class="info">
+        <div class="result">
+            <span>correct {{answers.correctAnswers}}</span>
+        </div>
+        <div class="result">
+            <span>incorrect {{answers.incorrectAnswers}}</span>
+        </div>
+    </div>
+</div>

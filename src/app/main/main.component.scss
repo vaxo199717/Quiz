@@ -1,0 +1,107 @@
+@mixin dropdown {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+}
+@mixin texts{
+    padding:15px 30px;
+    font-size: 30px;
+    cursor:pointer;
+    transition: 400ms;
+    &:hover{
+        background-color: rgba(0, 0, 0, 0.308);
+    }
+}
+@mixin lists{
+    list-style: none;
+    text-align: center;
+    font-size: 20px;
+    background-color: rgba(29, 29, 29, 0.37);
+    border-radius: 10px;
+}
+.container{
+
+    .options{
+        text-align: center;
+        height: 550px;
+        width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+
+        .categories{
+            .categories-text{
+                @include texts;
+            }
+            .categories-dropdown{
+               @include dropdown;
+               .categories-list{
+                   @include lists;
+                   display: flex;
+                   justify-content: space-evenly;
+                   align-items: center;
+                   flex-wrap: wrap;
+                    .category-btn{
+                        padding:10px 5px;
+                        cursor:pointer;
+                        width: 400px;
+                        transition: 300ms;
+                        &:hover{
+                            border-radius: 10px;
+                            background-color: rgb(207, 207, 207);
+                        }
+                    }
+               }
+            }
+        }
+        .difficulties{
+            .difficulties-text{
+                @include texts;
+            }
+            .difficulties-dropdown{
+                @include dropdown;
+                .difficulties-list{
+                    @include lists;
+                    height: 300px;
+                    font-size: 25px;
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    .difficulty-btn{
+                        padding: 15px 15px;
+                        width: 300px;
+                        cursor:pointer;
+                        transition: 300ms;
+                        &:hover{
+                            border-radius: 15px;
+                            background-color: rgb(207, 207, 207);
+                        }
+                    }
+                }
+            }
+        }
+        .start-btn{
+            font-size: 35px;
+            padding: 10px 50px;
+            background-color: rgb(49, 49, 255);
+            color: white;
+            border:solid 1px transparent;
+            border-radius:20px;
+            transition: 400ms;
+            &:hover{
+                border-color: rgb(49, 49, 255);
+                background-color: rgba(255, 255, 255, 0.486);
+                color: rgb(49, 49, 255);
+            }
+        }
+    }
+}

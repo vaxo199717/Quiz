@@ -1,0 +1,95 @@
+.quiz-start-page{
+    text-align: center;
+    display: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(231, 231, 231);
+.message{
+    text-align: center;
+}
+}
+.quiz-container{
+    .info{
+        width: 100vw;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 3px 6px 8px 0 rgba(36, 36, 36, 0.514);
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin-left: auto;
+        margin-right: auto;
+        height: 50px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        overflow-x: hidden;
+        .result{
+            span{
+                font-size: 20px;
+            }
+        }
+    }
+    .questions-container{
+        padding: 50px 0;
+
+        width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgba(17, 17, 17, 0.596);
+        .question{
+            width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            .question-content{
+             padding-top:30px;
+            .question-text{
+                color: white;
+            }
+             .answers{
+                 display: flex;
+                 flex-wrap: wrap;
+                 list-style-type: upper-latin;
+                 .answer-but{
+                     font-weight: 500;
+                     margin:4px 20px;
+                     width: 320px;
+                     padding:5px;
+                     cursor: pointer;
+                     transition: 300ms;
+                     background-color: white;
+                     color: black;
+                     outline:none;
+                     border:solid 1px transparent;
+                     border-radius: 10px;
+                     &:hover{
+                         background-color: #226ad9;
+                         color: wheat;
+                     }
+                 }
+             }
+            }
+        }
+        .finish{
+            display: flex;
+            justify-content: center;
+
+        }
+    }
+         
+    
+   
+}
+.correct-color {
+    background: green !important;
+    color: white !important;
+}
+
+.incorrect-color {
+    background: red !important;
+    color: white !important;
+}
+.disabled {
+    pointer-events: none;
+}
