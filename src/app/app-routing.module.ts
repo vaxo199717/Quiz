@@ -7,7 +7,7 @@ import { ResultsComponent } from './results/results.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/main' },
   { path: 'main', component: MainComponent },
-  { path: 'quizPage', component: QuizComponent },
+  { path: 'quiz', component: QuizComponent },
   { path: 'results', component: ResultsComponent }
 ];
 

@@ -55,9 +55,9 @@ export class MainComponent implements OnInit {
     this.texts.difficulty_text = this.selectedOptions.difficulty;
 
   }
-  onSubmit() {
+  start() {
     if (!this.selectedOptions.id || !this.selectedOptions.difficulty) return;
-    this._router.navigate(['/quizPage'], { queryParams: this.selectedOptions })
+    this._router.navigate(['/quiz'], { queryParams: this.selectedOptions })
   }
 
 }

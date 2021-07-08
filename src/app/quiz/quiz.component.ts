@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService, ISelectedOptions } from '../data.service';
 import { finalize } from 'rxjs/operators'
+
 
 
 @Component({
@@ -20,7 +21,8 @@ export class QuizComponent implements OnInit {
 
   constructor(
     private _dataService: DataService,
-    private _activatedRoute: ActivatedRoute
+    private _activatedRoute: ActivatedRoute,
+    private _router: Router
   ) {
     this.selectedOptions = this._activatedRoute.snapshot.queryParams as ISelectedOptions;
   }
@@ -52,12 +54,16 @@ export class QuizComponent implements OnInit {
         this.questions = questions;
       });
   }
+
+  // if (!this.selectedOptions.id || !this.selectedOptions.difficulty) return;
+  // this._router.navigate(['/quiz'], { queryParams: this.selectedOptions })
+
   finish() {
     if (this.answers.correctAnswers + this.answers.incorrectAnswers === 10) {
-      console.log('finished')
+      this._router.navigate(['/results'], {queryParams: this.answers});
     } else {
-      if (confirm("you have left " + (10 - (this.answers.correctAnswers + this.answers.incorrectAnswers)) + " do you want to finish anyway?")) {
-        console.log('you have finished')
+      if (confirm("you have left " + (10 - (this.answers.correctAnswers + this.answers.incorrectAnswers)) + " unanswered questions.. do you want to finish anyway?")) {
+        this._router.navigate(['/results'], {queryParams: this.answers});
       }
     }
   }

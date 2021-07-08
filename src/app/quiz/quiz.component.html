@@ -21,13 +21,14 @@
             </ol>
             <br>
             <div class="finish">
-                <button (click)="finish()" class="btn btn-primary" 
-                        [routerLink]="['/results']" [queryParams]="answers">finish</button>
+                <button (click)="finish()" class="btn btn-primary" >finish</button>
             </div>
         </ng-container>
 
         <ng-template #loading>
-            loading... 
+            <div class="loader-container">
+                <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            </div>
         </ng-template>
     </div>
     <div class="info">

@@ -20,7 +20,7 @@
                 </ul>
             </div>
         </div>
-        <button *ngIf="!visibleCategories && !visibleDifficulties" type="button" class="start-btn" (click)='onSubmit()'
+        <button *ngIf="!visibleCategories && !visibleDifficulties" type="button" class="start-btn" (click)='start()'
     [ngClass]='{"disabled": !selectedOptions.id || !selectedOptions.difficulty}'>START</button>
     </div>
     
