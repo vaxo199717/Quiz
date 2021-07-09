@@ -4,10 +4,12 @@
         <div class="categories">
             <div *ngIf="!visibleCategories && !visibleDifficulties" class="categories-text" (click)="openCategories()">{{texts.category_text}}</div>
             <div class="categories-dropdown" *ngIf="visibleCategories">
-                <ul class="categories-list">
-                    <li class="category-btn" *ngFor="let category of categories" (click)='selectedOptions.id = category.id; closeCategories()' 
-                        [ngClass]='{"selected": category.id === selectedOptions.id}'>{{category.name}}</li>
-                </ul>
+                <div class="dropdown-content" >
+                    <ul class="categories-list">
+                        <li class="category-btn" *ngFor="let category of categories" (click)='selectedOptions.id = category.id; closeCategories()' 
+                            [ngClass]='{"selected": category.id === selectedOptions.id}'>{{category.name}}</li>
+                    </ul>
+                </div>
             </div>
 
         </div>

@@ -1,8 +1,11 @@
 @mixin dropdown {
+    display: flex;
+    align-items: center;
         position: absolute;
         width: 100vw;
-        top: 0;
+        
         left: 0;
+        top: 0;
 }
 @mixin texts{
     padding:15px 30px;
@@ -36,6 +39,7 @@
         justify-content: space-evenly;
 
         .categories{
+
             .categories-text{
                 @include texts;
             }
