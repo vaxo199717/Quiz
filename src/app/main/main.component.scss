@@ -124,3 +124,31 @@
         }
     }
 }
+@media only screen and (max-width: 819px) {
+    .container{
+        .options{
+            .categories{
+                .categories-text{
+                }
+                .categories-dropdown{
+                   .dropdown-content{
+                        .categories-list{
+                            width: 100vw;
+                        }
+                   }
+                }
+            }
+            .difficulties{
+                .difficulties-text{
+                }
+                .difficulties-dropdown{
+                    .dropdown-content{
+                        .difficulties-list{
+                            width: 100vw;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
