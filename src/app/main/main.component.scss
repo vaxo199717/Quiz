@@ -3,7 +3,6 @@
     align-items: center;
         position: absolute;
         width: 100vw;
-        
         left: 0;
         top: 0;
 }
@@ -17,6 +16,10 @@
     }
 }
 @mixin lists{
+
+
+
+    margin: 0 5px;
     list-style: none;
     text-align: center;
     font-size: 20px;
@@ -39,29 +42,34 @@
         justify-content: space-evenly;
 
         .categories{
-
             .categories-text{
                 @include texts;
             }
             .categories-dropdown{
                @include dropdown;
-               .categories-list{
-                   @include lists;
+               .dropdown-content{
+                   height: 100vh;
                    display: flex;
-                   justify-content: space-evenly;
                    align-items: center;
-                   flex-wrap: wrap;
-                    .category-btn{
-                        padding:10px 5px;
-                        cursor:pointer;
-                        width: 400px;
-                        transition: 300ms;
-                        &:hover{
-                            border-radius: 10px;
-                            background-color: rgb(207, 207, 207);
-                        }
-                    }
+                .categories-list{
+                    @include lists;
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    flex-wrap: wrap;
+                     .category-btn{
+                         padding:10px 5px;
+                         cursor:pointer;
+                         width: 400px;
+                         transition: 300ms;
+                         &:hover{
+                             border-radius: 10px;
+                             background-color: rgb(207, 207, 207);
+                         }
+                     }
+                }
                }
+               
             }
         }
         .difficulties{
@@ -105,5 +113,10 @@
                 color: rgb(49, 49, 255);
             }
         }
+    }
+}
+@media only screen and (max-width: 745px) {
+    @mixin lists{
+        
     }
 }
