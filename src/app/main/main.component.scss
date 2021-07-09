@@ -1,6 +1,5 @@
 @mixin dropdown {
-    display: flex;
-    align-items: center;
+
         position: absolute;
         width: 100vw;
         left: 0;
@@ -20,7 +19,7 @@
     height: 100%;
     list-style: none;
     text-align: center;
-    padding:0 5px;
+    margin: 0;
     font-size: 20px;
 }
 .container{
@@ -29,7 +28,7 @@
     align-items: center;
     .options{
         text-align: center;
-        height: 80vh;
+        height: 60vh;
         width: 100vw;
         margin-left: auto;
         margin-right: auto;
@@ -49,6 +48,7 @@
                    height: 100vh;
                    display: flex;
                    align-items: center;
+
                 .categories-list{
                     @include lists;
                     display: flex;
@@ -76,6 +76,7 @@
             }
             .difficulties-dropdown{
                 @include dropdown;
+                height: 100vh;
                 display: flex;
                 justify-content: center;
                 .dropdown-content{
@@ -83,7 +84,7 @@
                     height: 100vh;
                     display: flex;
                     align-items: center;
-                    background-color: rgba(29, 29, 29, 0.37);
+
                     .difficulties-list{
                         
                         @include lists;
@@ -135,7 +136,9 @@
                    .dropdown-content{
 
                         .categories-list{
+                            .category-btn{
                             
+                            }
                             
                         }
                    }
@@ -146,12 +149,52 @@
                 .difficulties-dropdown{
                     .dropdown-content{
                         .difficulties-list{
-                           
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 410px) {
+    .container{
+        .options{
+            .categories{
+                .categories-text{
+                    font-size: 22px;
+                }
+                .categories-dropdown{
+                    
+                   .dropdown-content{
+
+                        .categories-list{
+                            .category-btn{
+                                width: 300px;
+                            }
+                            
+                        }
+                   }
+                }
+            }
+            .difficulties{
+                .difficulties-text{
+                    font-size: 22px;
+                }
+                .difficulties-dropdown{
+                    .dropdown-content{
+                        .difficulties-list{
+                            .difficulty-btn{
+                                width: 300px;
+                            }
                             
 
                         }
                     }
                 }
+            }
+            .start-btn{
+                font-size: 25px;
+                padding: 10px 15px;
             }
         }
     }
