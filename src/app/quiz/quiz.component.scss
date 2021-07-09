@@ -38,7 +38,6 @@
         margin-right: auto;
         background-color: rgba(17, 17, 17, 0.596);
         .question{
-
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
@@ -241,10 +240,15 @@
       .questions-container{
 
           .question{
+            padding:0;
             width: 100%;
+            list-style: none;
+            
               .question-content{
-              
+                list-style: none;
+                padding:0;
                   .answers{
+                    width: 350px;
                     .answer-but{
                       margin:2px 0;
                     }
@@ -254,3 +258,49 @@
       }
   }
 }
+@media only screen and (max-width: 384px) {
+  .quiz-container{
+
+      .questions-container{
+
+          .question{
+            
+            
+              .question-content{
+
+                  .answers{
+                    width: 300px;
+                    padding:0;
+                    .answer-but{
+                      list-style: none;
+
+                    }
+                  }
+              }
+          }
+      }
+  }
+}
+@media only screen and (max-width: 350px) {
+  .quiz-container{
+
+      .questions-container{
+
+          .question{
+            
+            
+              .question-content{
+
+                  .answers{
+                    width: 250px;
+                    padding:0;
+                    .answer-but{
+                      width: 250px;
+                    }
+                  }
+              }
+          }
+      }
+  }
+}
+
