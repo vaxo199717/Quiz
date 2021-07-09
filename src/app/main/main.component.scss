@@ -1,12 +1,8 @@
 @mixin dropdown {
+ 
         position: absolute;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
         top: 0;
         left: 0;
-        width: 100vw;
-        height: 100vh;
 }
 @mixin texts{
     padding:15px 30px;
