@@ -16,12 +16,10 @@
     }
 }
 @mixin lists{
-
-
-
     margin: 0 5px;
     list-style: none;
     text-align: center;
+    padding:0 5px;
     font-size: 20px;
     background-color: rgba(29, 29, 29, 0.37);
     border-radius: 10px;
@@ -78,25 +76,36 @@
             }
             .difficulties-dropdown{
                 @include dropdown;
-                .difficulties-list{
-                    @include lists;
-                    height: 300px;
-                    font-size: 25px;
+                display: flex;
+                justify-content: center;
+                .dropdown-content{
+                    height: 100vh;
                     display: flex;
                     align-items: center;
-                    flex-direction: column;
-                    justify-content: space-evenly;
-                    .difficulty-btn{
-                        padding: 15px 15px;
-                        width: 300px;
-                        cursor:pointer;
-                        transition: 300ms;
-                        &:hover{
-                            border-radius: 15px;
-                            background-color: rgb(207, 207, 207);
+
+                    .difficulties-list{
+                        
+                        @include lists;
+                        height: 300px;
+                        font-size: 25px;
+                        display: flex;
+                        align-items: center;
+                        flex-direction: column;
+                        justify-content: space-evenly;
+                        .difficulty-btn{
+                            padding: 15px 15px;
+                            width: 300px;
+                            cursor:pointer;
+                            transition: 300ms;
+                            &:hover{
+                                border-radius: 15px;
+                                background-color: rgb(207, 207, 207);
+                            }
                         }
                     }
                 }
+                
+                
             }
         }
         .start-btn{

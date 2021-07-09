@@ -219,9 +219,12 @@
 }
 @media only screen and (max-width: 710px) {
     .quiz-container{
+
         .questions-container{
+
             .question{
                 .question-content{
+                
                     .answers{
                         width:400px;
                         margin-left: auto;
@@ -231,4 +234,23 @@
             }
         }
     }
+}
+@media only screen and (max-width: 450px) {
+  .quiz-container{
+
+      .questions-container{
+
+          .question{
+            width: 100%;
+              .question-content{
+              
+                  .answers{
+                    .answer-but{
+                      margin:2px 0;
+                    }
+                  }
+              }
+          }
+      }
+  }
 }
