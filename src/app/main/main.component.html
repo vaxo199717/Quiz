@@ -2,11 +2,13 @@
     <div class="options-background"></div>
     <div class="options">
         <div class="categories">
-            <div *ngIf="!visibleCategories && !visibleDifficulties" class="categories-text" (click)="openCategories()">{{texts.category_text}}</div>
+            <div *ngIf="!visibleCategories && !visibleDifficulties" class="categories-text" (click)="openCategories()">
+                {{texts.category_text}}</div>
             <div class="categories-dropdown" *ngIf="visibleCategories">
-                <div class="dropdown-content" >
+                <div class="dropdown-content">
                     <ul class="categories-list">
-                        <li class="category-btn" *ngFor="let category of categories" (click)='selectedOptions.id = category.id; closeCategories()' 
+                        <li class="category-btn" *ngFor="let category of categories"
+                            (click)='selectedOptions.id = category.id; closeCategories()'
                             [ngClass]='{"selected": category.id === selectedOptions.id}'>{{category.name}}</li>
                     </ul>
                 </div>
@@ -14,16 +16,20 @@
 
         </div>
         <div class="difficulties">
-            <div *ngIf="!visibleDifficulties && !visibleCategories" class="difficulties-text" (click)="openDifficulties()" >{{texts.difficulty_text}}</div>
+            <div *ngIf="!visibleDifficulties && !visibleCategories" class="difficulties-text"
+                (click)="openDifficulties()">{{texts.difficulty_text}}</div>
             <div class="difficulties-dropdown" *ngIf="visibleDifficulties">
-                <ul class="difficulties-list">
-                    <li class="difficulty-btn" *ngFor="let difficulty of difficulties" (click)='selectedOptions.difficulty = difficulty; closeDifficulties()'
-                        [ngClass]='{"selected": difficulty === selectedOptions.difficulty}'>{{difficulty}}</li>
-                </ul>
+                <div class="dropdown-content">
+                    <ul class="difficulties-list">
+                        <li class="difficulty-btn" *ngFor="let difficulty of difficulties"
+                            (click)='selectedOptions.difficulty = difficulty; closeDifficulties()'
+                            [ngClass]='{"selected": difficulty === selectedOptions.difficulty}'>{{difficulty}}</li>
+                    </ul>
+                </div>
             </div>
         </div>
         <button *ngIf="!visibleCategories && !visibleDifficulties" type="button" class="start-btn" (click)='start()'
-    [ngClass]='{"disabled": !selectedOptions.id || !selectedOptions.difficulty}'>START</button>
+            [ngClass]='{"disabled": !selectedOptions.id || !selectedOptions.difficulty}'>START</button>
     </div>
-    
+
 </div>
