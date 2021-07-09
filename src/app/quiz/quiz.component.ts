@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DataService, ISelectedOptions } from '../data.service';
+import { DataService, selectedOption } from '../data.service';
 import { finalize } from 'rxjs/operators'
 
 
@@ -17,32 +17,24 @@ export class QuizComponent implements OnInit {
   }
   isLoading: boolean = true;
   questions: any[] = [];
-  selectedOptions: ISelectedOptions;
+  selectedOptions: selectedOption;
 
   constructor(
     private _dataService: DataService,
     private _activatedRoute: ActivatedRoute,
-    private _router: Router
+    private _resultsRouter: Router
   ) {
-    this.selectedOptions = this._activatedRoute.snapshot.queryParams as ISelectedOptions;
+    this.selectedOptions = this._activatedRoute.snapshot.queryParams as selectedOption;
   }
-
   chooseAnswer(quizQuestion: any, selectedAnswer: any) {
-
-    if (selectedAnswer === quizQuestion.correct_answer) {
-      this.answers.correctAnswers++;
-
-    } else {
-      this.answers.incorrectAnswers++;
-    }
-
+    selectedAnswer === quizQuestion.correct_answer?this.answers.correctAnswers++:this.answers.incorrectAnswers++;
     quizQuestion.isAnswered = true;
     quizQuestion.selectedAnswer = selectedAnswer;
   }
-
+  
   ngOnInit(): void {
     this._dataService.getQuestion(this.selectedOptions.id, this.selectedOptions.difficulty)
-      .pipe(finalize(() => this.isLoading = false ))
+      .pipe(finalize(() => this.isLoading = false))
       .subscribe(data => {
         const questions: any[] = data.results.map((item: any) => {
           item.incorrect_answers.push(item.correct_answer)
@@ -54,21 +46,14 @@ export class QuizComponent implements OnInit {
         this.questions = questions;
       });
   }
-
-  // if (!this.selectedOptions.id || !this.selectedOptions.difficulty) return;
-  // this._router.navigate(['/quiz'], { queryParams: this.selectedOptions })
-
   finish() {
     if (this.answers.correctAnswers + this.answers.incorrectAnswers === 10) {
-      this._router.navigate(['/results'], {queryParams: this.answers});
+      this._resultsRouter.navigate(['/results'], { queryParams: this.answers });
     } else {
       if (confirm("you have left " + (10 - (this.answers.correctAnswers + this.answers.incorrectAnswers)) + " unanswered questions.. do you want to finish anyway?")) {
-        this._router.navigate(['/results'], {queryParams: this.answers});
+        this._resultsRouter.navigate(['/results'], { queryParams: this.answers });
       }
     }
-  }
-  getResults(){
-      return this.answers
   }
   shuffleArray = (array: any[]) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -78,5 +63,4 @@ export class QuizComponent implements OnInit {
       array[j] = temp;
     }
   }
-
 }

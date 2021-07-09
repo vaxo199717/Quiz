@@ -11,8 +11,6 @@ export class ResultsComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute
   ) { }
-  showResults(){
-  }
   ngOnInit(): void {
     this.results = this.activatedRoute.snapshot.queryParams;
   }

@@ -1,20 +1,19 @@
 @mixin dropdown {
-
-        position: absolute;
-        width: 100vw;
-        left: 0;
-        top: 0;
+    position: absolute;
+    width: 100vw;
+    left: 0;
+    top: 0;
 }
-@mixin texts{
-    padding:15px 30px;
+@mixin texts {
+    padding: 15px 30px;
     font-size: 30px;
-    cursor:pointer;
+    cursor: pointer;
     transition: 400ms;
-    &:hover{
-        background-color: rgba(0, 0, 0, 0.308);
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.486);
     }
 }
-@mixin lists{
+@mixin lists {
     width: 100%;
     height: 100%;
     list-style: none;
@@ -22,11 +21,11 @@
     margin: 0;
     font-size: 20px;
 }
-.container{
+.container {
     height: 100vh;
     display: flex;
     align-items: center;
-    .options{
+    .options {
         text-align: center;
         height: 60vh;
         width: 100vw;
@@ -36,57 +35,51 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
-
-        .categories{
-            .categories-text{
+        .categories {
+            .categories-text {
                 @include texts;
             }
-            .categories-dropdown{
-               @include dropdown;
-               .dropdown-content{
-
-                   height: 100vh;
-                   display: flex;
-                   align-items: center;
-
-                .categories-list{
-                    @include lists;
+            .categories-dropdown {
+                @include dropdown;
+                .dropdown-content {
+                    height: 100vh;
                     display: flex;
-                    justify-content: space-evenly;
                     align-items: center;
-                    flex-wrap: wrap;
-                     .category-btn{
-                         padding:10px 5px;
-                         cursor:pointer;
-                         width: 400px;
-                         transition: 300ms;
-                         &:hover{
-                             border-radius: 10px;
-                             background-color: rgb(207, 207, 207);
-                         }
-                     }
+                    .categories-list {
+                        @include lists;
+                        display: flex;
+                        justify-content: space-evenly;
+                        align-items: center;
+                        flex-wrap: wrap;
+                        .category-btn {
+                            padding: 10px 5px;
+                            cursor: pointer;
+                            width: 400px;
+                            transition: 300ms;
+                            &:hover {
+                                border-radius: 10px;
+                                background-color: rgb(207, 207, 207);
+                            }
+                        }
+                    }
                 }
-               }
-               
             }
         }
-        .difficulties{
-            .difficulties-text{
+        .difficulties {
+            .difficulties-text {
                 @include texts;
             }
-            .difficulties-dropdown{
+            .difficulties-dropdown {
                 @include dropdown;
                 height: 100vh;
                 display: flex;
                 justify-content: center;
-                .dropdown-content{
+                .dropdown-content {
                     height: 100vw;
                     height: 100vh;
                     display: flex;
                     align-items: center;
-
-                    .difficulties-list{
-                        
+                    .difficulties-list {
                         @include lists;
                         height: 300px;
                         font-size: 25px;
@@ -94,31 +87,29 @@
                         align-items: center;
                         flex-direction: column;
                         justify-content: space-evenly;
-                        .difficulty-btn{
+                        .difficulty-btn {
                             padding: 15px 15px;
                             width: 300px;
-                            cursor:pointer;
+                            cursor: pointer;
                             transition: 300ms;
-                            &:hover{
+                            &:hover {
                                 border-radius: 15px;
                                 background-color: rgb(207, 207, 207);
                             }
                         }
                     }
                 }
-                
-                
             }
         }
-        .start-btn{
+        .start-btn {
             font-size: 35px;
             padding: 10px 50px;
             background-color: rgb(49, 49, 255);
             color: white;
-            border:solid 1px transparent;
-            border-radius:20px;
+            border: solid 1px transparent;
+            border-radius: 20px;
             transition: 400ms;
-            &:hover{
+            &:hover {
                 border-color: rgb(49, 49, 255);
                 background-color: rgba(255, 255, 255, 0.486);
                 color: rgb(49, 49, 255);
@@ -127,40 +118,37 @@
     }
 }
 @media only screen and (max-width: 410px) {
-    .container{
-        .options{
-            .categories{
-                .categories-text{
+    .container {
+        .options {
+            .categories {
+                .categories-text {
                     font-size: 22px;
                 }
-                .categories-dropdown{
-                    
-                   .dropdown-content{
-
-                        .categories-list{
-                            .category-btn{
-                                width: 300px;
-                            }
-                            
-                        }
-                   }
-                }
-            }
-            .difficulties{
-                .difficulties-text{
-                    font-size: 22px;
-                }
-                .difficulties-dropdown{
-                    .dropdown-content{
-                        .difficulties-list{
-                            .difficulty-btn{
+                .categories-dropdown {
+                    .dropdown-content {
+                        .categories-list {
+                            .category-btn {
                                 width: 300px;
                             }
                         }
                     }
                 }
             }
-            .start-btn{
+            .difficulties {
+                .difficulties-text {
+                    font-size: 22px;
+                }
+                .difficulties-dropdown {
+                    .dropdown-content {
+                        .difficulties-list {
+                            .difficulty-btn {
+                                width: 300px;
+                            }
+                        }
+                    }
+                }
+            }
+            .start-btn {
                 font-size: 25px;
                 padding: 10px 15px;
             }

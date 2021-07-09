@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DataService, difficulity, ISelectedOptions } from '../data.service';
+import { DataService, difficulity, selectedOption } from '../data.service';
 
 @Component({
   selector: 'app-main',
@@ -16,11 +16,11 @@ export class MainComponent implements OnInit {
   visibleDifficulties: boolean = false;
   categories: any[] = [];
   difficulties: difficulity[] = ['easy', 'medium', 'hard'];
-  selectedOptions: ISelectedOptions = { id: 0, difficulty: 'easy' }
+  selectedOptions: selectedOption = { id: 0, difficulty: 'easy' }
 
   constructor(
     private _dataService: DataService,
-    private _router: Router
+    private _quizRouter: Router
   ) { }
 
   ngOnInit(): void {
@@ -45,7 +45,6 @@ export class MainComponent implements OnInit {
     if (this.visibleCategories) {
       this.visibleCategories = false;
     }
-    console.log(this.categories[(this.selectedOptions.id - 9)].name)
     this.texts.category_text = this.categories[(this.selectedOptions.id - 9)].name
   }
   closeDifficulties(){
@@ -57,7 +56,7 @@ export class MainComponent implements OnInit {
   }
   start() {
     if (!this.selectedOptions.id || !this.selectedOptions.difficulty) return;
-    this._router.navigate(['/quiz'], { queryParams: this.selectedOptions })
+    this._quizRouter.navigate(['/quiz'], { queryParams: this.selectedOptions })
   }
 
 }

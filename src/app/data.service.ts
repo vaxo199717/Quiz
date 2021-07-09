@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 const DOMAIN = 'https://opentdb.com/';
 export type difficulity = 'easy' | 'medium' | 'hard';
 
-export interface ISelectedOptions {
+export interface selectedOption {
   id: number, 
   difficulty: difficulity
 }
